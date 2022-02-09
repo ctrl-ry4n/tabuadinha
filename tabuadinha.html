@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuadinha</title>
+    <style>
+        body{
+            background-image: url(background-math.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+        }
+        header{
+            font: normal Arial;
+            font-size: 30px;
+            padding: 50px;
+            color: white;
+            text-align: center;
+        }
+        section{
+            background-color: rgb(75, 80, 80);  
+            text-align: center;
+            width: 750px;
+            margin: auto;
+            border-radius: 30px;
+            padding: 35px;
+            color: white;
+            box-shadow: 5px 5px 5px 5px rgba(19, 18, 18, 0.493); 
+        }
+        footer{
+            text-align: center;
+            padding: 165px;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tabuadinha Básica</h1>
+    </header>
+    <section>
+        <div id="dados">
+            <p>Taboada do: <input type="number" name="numerotxt" id="numerotxt">
+               <input type="button" value="Gerar Tabuada" onclick="gerar()"></p>  
+        <div id="resultado">
+            <p><select name="seletor" id="seletortabuada" size="10">
+                 <option value="v1"> Digite Um Numero  acima </option>
+                
+            </select></p>
+        </div>
+    </section>
+    <script>
+        function gerar(){
+        var numero = window.document.getElementById("numerotxt") 
+        var tabuada = window.document.getElementById("seletortabuada")
+            tabuada.innerHTML =``
+            if(numero.value.length == 0){
+                window.alert("[ERRO] Por Favor Digite um Numero!")
+            } else{
+                var numero = Number(numero.value)
+                var numeromultiplicado = 1
+                while(numeromultiplicado <=10){
+                    var item = document.createElement("option")
+                    item.text = `${numero} X ${numeromultiplicado} = ${numero*numeromultiplicado}`
+                    item.value = `tabuada${numeromultiplicado}` // util para PHP
+                tabuada.appendChild(item)
+                numeromultiplicado ++
+                }
+            }
+            }
+        
+
+    </script>
+    <footer>
+        &copy;<i>Ryan Ramos</i>
+
+    </footer>
